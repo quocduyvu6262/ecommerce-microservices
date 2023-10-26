@@ -38,6 +38,7 @@ public class OrderService {
                 .block();
         assert inventoryResponses != null;
         boolean allProductsInStock = Arrays.stream(inventoryResponses).allMatch(InventoryResponse::isInStock);
+
         if(Boolean.TRUE.equals(allProductsInStock)) {
             orderRepository.save(order);
         } else{
