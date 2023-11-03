@@ -15,6 +15,7 @@
         <module name="currency-exchange-service" />
         <module name="order-service" />
         <module name="limits-service" />
+        <module name="notification-service" />
         <module name="naming-server" />
       </profile>
     </annotationProcessing>
@@ -27,6 +28,7 @@
       <module name="inventory-service" options="-parameters" />
       <module name="limits-service" options="-parameters" />
       <module name="naming-server" options="-parameters" />
+      <module name="notification-service" options="-parameters" />
       <module name="order-service" options="-parameters" />
       <module name="product-service" options="-parameters" />
       <module name="spring-cloud-config-server" options="-parameters" />

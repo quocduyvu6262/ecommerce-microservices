@@ -28,6 +28,16 @@ public class ApiGatewayConfiguration {
                         .uri("lb://currency-conversion-service"))
                 .route(p -> p.path("/currency-conversion-feign/**")
                         .uri("lb://currency-conversion-service"))
+//                .route(p -> p.path("/api/product")
+//                        .uri("lb://product-service"))
+//                .route(p -> p.path("/api/products")
+//                        .uri("lb://product-service"))
+//                .route(p -> p.path("/api/order")
+//                        .uri("lb://order-service"))
+//                .route(p -> p.path("/api/inventory")
+//                        .uri("lb://inventory-service"))
+//                .route(p -> p.path("/*")
+//                        .uri("http://localhost:8761"))
                 .build();
     }
 }
