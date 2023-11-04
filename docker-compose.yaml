@@ -1,61 +1,61 @@
 version: '3.7'
 
 services:
-  currency-exchange-service:
-    container_name: currency-exchange-service
-    build: currency-exchange-service
-    image: currency-exchange-service:latest
-    ports:
-      - "8000:8000"
-    networks:
-      - currency_network
-    depends_on:
-      - naming-server
-    environment:
-      - eureka.client.service-url.defaultZone=http://naming-server:8761/eureka
-      - management.zipkin.tracing.endpoint=http://zipkin-server:9411/api/v2/spans
-  currency-conversion-service:
-    container_name: currency-conversion-service
-    build: currency-conversion-service
-    image: currency-conversion-service:latest
-    ports:
-      - "8100:8100"
-    networks:
-      - currency_network
-    depends_on:
-      - naming-server
-    environment:
-      - eureka.client.service-url.defaultZone=http://naming-server:8761/eureka
-      - management.zipkin.tracing.endpoint=http://zipkin-server:9411/api/v2/spans
-  api-gateway:
-    container_name: api-gateway
-    build: api-gateway
-    image: api-gateway:latest
-    ports:
-      - "8765:8765"
-    networks:
-      - currency_network
-    depends_on:
-      - naming-server
-    environment:
-      - eureka.client.service-url.defaultZone=http://naming-server:8761/eureka
-      - management.zipkin.tracing.endpoint=http://zipkin-server:9411/api/v2/spans
-  naming-server:
-    container_name: naming-server
-    build: naming-server
-    image: naming-server:latest
-    ports:
-      - "8761:8761"
-    networks:
-      - currency_network
-  zipkin-server:
-    container_name: zipkin-server
-    image: openzipkin/zipkin:2.23
-    ports:
-      - "9411:9411"
-    networks:
-      - currency_network
-    restart: always
+#  currency-exchange-service:
+#    container_name: currency-exchange-service
+#    build: currency-exchange-service
+#    image: currency-exchange-service:latest
+#    ports:
+#      - "8000:8000"
+#    networks:
+#      - currency_network
+#    depends_on:
+#      - naming-server
+#    environment:
+#      - eureka.client.service-url.defaultZone=http://naming-server:8761/eureka
+#      - management.zipkin.tracing.endpoint=http://zipkin-server:9411/api/v2/spans
+#  currency-conversion-service:
+#    container_name: currency-conversion-service
+#    build: currency-conversion-service
+#    image: currency-conversion-service:latest
+#    ports:
+#      - "8100:8100"
+#    networks:
+#      - currency_network
+#    depends_on:
+#      - naming-server
+#    environment:
+#      - eureka.client.service-url.defaultZone=http://naming-server:8761/eureka
+#      - management.zipkin.tracing.endpoint=http://zipkin-server:9411/api/v2/spans
+#  api-gateway:
+#    container_name: api-gateway
+#    build: api-gateway
+#    image: api-gateway:latest
+#    ports:
+#      - "8765:8765"
+#    networks:
+#      - currency_network
+#    depends_on:
+#      - naming-server
+#    environment:
+#      - eureka.client.service-url.defaultZone=http://naming-server:8761/eureka
+#      - management.zipkin.tracing.endpoint=http://zipkin-server:9411/api/v2/spans
+#  naming-server:
+#    container_name: naming-server
+#    build: naming-server
+#    image: naming-server:latest
+#    ports:
+#      - "8761:8761"
+#    networks:
+#      - currency_network
+#  zipkin-server:
+#    container_name: zipkin-server
+#    image: openzipkin/zipkin:2.23
+#    ports:
+#      - "9411:9411"
+#    networks:
+#      - currency_network
+#    restart: always
 
   zookeeper:
     image: confluentinc/cp-zookeeper:7.0.1
